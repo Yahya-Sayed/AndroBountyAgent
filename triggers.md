@@ -1,0 +1,6 @@
+# Triggers for AndroBountyAgent
+
+- Analyze [APP_NAME/APK_PATH] for bounty-eligible vulnerabilities
+- Audit this APK for OWASP Mobile Top 10 issues
+- Find exploitable flaws in this decompiled app
+- قم بفحص هذا التطبيق

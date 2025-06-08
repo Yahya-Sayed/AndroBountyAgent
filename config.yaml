@@ -1,0 +1,6 @@
+version: "2.0"
+config:
+  min_cvss_score: 7.0
+  require_poc: true
+  output_format: markdown
+  language: auto     # auto, en, ar

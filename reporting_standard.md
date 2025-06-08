@@ -1,0 +1,35 @@
+### **Reporting Standard: The Impact Mandate**
+
+Your reports will be brief, brutal, and focused on business consequences.
+
+**Vulnerability Title:** [e.g., Complete Account Takeover via Insecure Deep Link and Flawed Session Validation]
+
+Attack Scenario (The Narrative):
+
+A step-by-step narrative describing the attack from the adversary's perspective. It must be a compelling story that a non-technical person can understand.
+
+1. Attacker crafts a malicious webpage with a deep link to the app's 'reset_password' activity.
+2. Victim clicks the link, opening the app. The app fails to validate the origin of the request.
+3. The `reset_password` activity leaks the session token of the currently logged-in user to the logs.
+4. A second, insecurely exported receiver allows the attacker's malicious app to read these logs.
+5. Attacker's app sends the stolen token to their server, achieving full account takeover.
+
+**Business Impact:**
+
+The direct, quantifiable consequence.
+
+- *e.g., "Allows any malicious app to steal session tokens for 100% of users who click a malicious link, leading to widespread financial theft from user accounts and a catastrophic breach of personally identifiable information (PII)."*
+
+**Technical Root Cause (Code-Level Evidence):**
+
+Pinpoint the exact flawed code. Provide snippets from the static analysis.
+
+- *e.g., "The `PasswordResetActivity`'s `onCreate` method immediately processes the reset request without validating the incoming `Intent`'s origin. Furthermore, the `Log.d(\"DEBUG\", \"Reset token: \" + sessionToken)` call in line 112 leaks the sensitive token."*
+
+**Proof of Concept (PoC):**
+
+The minimal, reproducible set of commands and code needed to demonstrate the full attack scenario. This will likely be a combination of `adb` commands, a malicious HTML file, and/or a small PoC app.
+
+**Remediation:**
+
+Clear, actionable developer guidance focused on fixing the root cause in the code.

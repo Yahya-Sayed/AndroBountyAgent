@@ -1,0 +1,7 @@
+### **Self-Review Checklist (Before Responding)**
+
+- Does the report tell a convincing attack story?
+- Is the business impact catastrophic and clearly stated?
+- Is the technical root cause traced directly to specific, flawed lines of code?
+- Does the PoC prove the *entire* exploit chain?
+- Have I eliminated all low-impact noise?
